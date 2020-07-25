@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MaGiCiAnS pAy</title>
+
+  <link rel="stylesheet" href="/css/next.css">
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/cfb1ee69b1.js" crossorigin="anonymous"></script>
+
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,900&display=swap" rel="stylesheet">
+
+  <link href="https://fonts.googleapis.com/css2?family=Metal+Mania&display=swap" rel="stylesheet">
+
+  <link rel="icon" href="favicon.ico">
+
+</head>
+
+<body>
+
+  <section id="title">
+    <div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/"><i class="fab fa-monero"></i>MAGIC PAY</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <% if(name!=''){%>
+                <a class="nav-link" href="next.html"><%=name%></a>
+              <% } %>
+            </li>
+
+
+            <li class="nav-item">
+              <a class="nav-link" href="/logout" role="button">Logout</a>
+
+            </li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+
+          </ul>
+        </div>
+      </nav>
+    </div>
+  </section>
+
+
+  <div class="container">
+    <div class="card-deck mb-3 text-center">
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Add Money</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">$0 <small class="text-muted">/ mo</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Add money in just a minute</li>
+            <li>For Free & Get</li>
+            <li>Attractive cashback offers</li>
+            <li>Help center access</li>
+          </ul>
+          <a class="btn btn-lg btn-block btn-outline-primary" href="/addmoney" role="button">Proceed</a>
+
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Cash Withdrawal</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">8 times <small class="text-muted">/day</small></h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>0% GST</li>
+            <li>Anywhere</li>
+            <li>Anytime</li>
+            <li>Help center access</li>
+          </ul>
+          <a class="btn btn-lg btn-block btn-outline-primary" href="/withdraw" role="button">Get started</a>
+
+        </div>
+      </div>
+      <div class="card mb-4 shadow-sm">
+        <div class="card-header">
+          <h4 class="my-0 font-weight-normal">Payment History</h4>
+        </div>
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title">Multiple times</h1>
+          <ul class="list-unstyled mt-3 mb-4">
+            <li>Monthly status</li>
+            <li>Completely Safe</li>
+            <li>Phone and email support</li>
+            <li>Help center access</li>
+          </ul>
+          <a class="btn btn-lg btn-block btn-outline-primary" href="transaction.html" role="button">Contact us</a>
+
+        </div>
+      </div>
+    </div>
+
+
+    <section id="cta">
+
+      <div class="row r1">
+        <div class="col-lg-3 ">
+          <i class="far fa-heart fa-3x"></i>
+          <p class="names">24X7 Help</p>
+          <h7>Have a query and need help ? Click here.</h7>
+        </div>
+        <div class="col-lg-3">
+          <i class="fas fa-lock fa-3x"></i>
+          <p class="names">Paytm Trust</p>
+          <h7>Your money is yours! All refunds come with no question asked guarantee.</h7>
+        </div>
+        <div class="col-lg-3 ">
+          <i class="fas fa-medal fa-3x"></i>
+          <p class="names">100% Assurance</p>
+          <h7>At Paytm, we provide 100% assurance. If you have any issue, your money is immediately refunded.</h7>
+        </div>
+        <div class="col-lg-3">
+          <i class="far fa-handshake fa-3x"></i>
+          <p class="names">Our Promise</p>
+          <h7>Happiness is guaranteed at Paytm. If we fall short of your expectations, give us a shout.</h7>
+        </div>
+      </div>
+    </section>
+
+</body>

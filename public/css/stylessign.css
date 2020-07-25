@@ -1,0 +1,37 @@
+.container{
+  padding: 3% 15%;
+}
+
+.form-container{
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px 0px #000;
+
+  /* position: absolute; */
+  /* top: 30vh; */
+
+
+}
+.navbar .navbar-brand{
+  /* /color: #fff; */
+  font-weight: bolder;
+  font-size: 2em;
+}
+.bg{
+  padding-top: 50px;
+  padding-bottom: 30px;
+}
+
+.local{
+  text-align: center;
+  padding-top: 20px;
+}
+body{
+  background-color: #21bf73;
+  background-image: linear-gradient(to bottom right,#79d70f , #deff8b);
+}
+li{
+  font-size: 20px;
+  padding: 20px;
+}

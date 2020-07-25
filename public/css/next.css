@@ -1,0 +1,81 @@
+
+
+
+#title{
+  background-color: #21bf73;
+  background-image: linear-gradient(to bottom right,#79d70f , #deff8b);
+  height: 250px;
+  z-index: 1;
+}
+ .navbar{
+  background-color: transparent !important;
+
+}
+
+.tab{
+  text-align: right;
+  padding-top: 100px;
+  padding-right: 50px;
+  font-size: 70px;
+  font-family: 'Metal Mania', cursive;
+}
+.navbar .navbar-brand{
+  /* /color: #fff; */
+  font-weight: bolder;
+  font-size: 2em;
+}
+ .pic{
+  margin-top: 50px;
+  /* margin-left: 20px; */
+  height: auto;
+  transform: rotate(-15deg);
+  position: absolute;
+  width: 18%;
+}
+ .container{
+  padding: 3% 15%;
+}
+li{
+  font-size: 20px;
+  padding: 20px;
+}
+#cta{
+  background-color:  #fce8d5;
+  background-image: linear-gradient(to bottom right,#79d70f , #deff8b);
+  text-align: center;
+  padding: 7% 15%;
+  font-family: "Montserrat-Bold";
+  z-index: 1;
+  position: relative;
+}
+.f2{
+  font-size: 30px;
+  text-align: center;
+  padding: 7% 15%;
+  font-family: cursive;
+}
+.i1{
+  margin-bottom: 1rem;
+
+}
+.r1{
+  padding-top: 40px;
+}
+.bottom{
+  font-size: 50px;
+}
+.names{
+  font-size: 20px;
+}
+#protect{
+  font-size: 25px;
+  text-align: center;
+  padding: 7% 15%;
+  font-family: cursive;
+}
+ .icon{
+   color: blue;
+ }
+ .down{
+   color: grey;
+ }

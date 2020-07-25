@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>MaGiCiAnS pAy</title>
+
+  <link rel="stylesheet" href="/css/stylessign.css">
+
+  <!-- <link rel="stylesheet" href="stylessign.css"> -->
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+  <script src="https://kit.fontawesome.com/cfb1ee69b1.js" crossorigin="anonymous"></script>
+
+  <link rel="icon" href="favicon.ico">
+
+  <script>
+    // Function to check Whether both passwords
+    // is same or not.
+    function checkPassword(form) {
+      password1 = form.password.value;
+      password2 = form.confirm.value;
+
+      // If password not entered
+      if (password1 == '') {
+        alert("Please enter Password");
+        return false;
+      }
+      // If confirm password not entered
+      else if (password2 == '') {
+        alert("Please enter confirm password");
+        return false;
+      }
+      // If Not same return False.
+      else if (password1 != password2) {
+        alert("\nPassword did not match: Please try again...")
+        return false;
+      }
+
+      // If same return True.
+      else {
+        return true;
+      }
+    }
+  </script>
+
+
+</head>
+
+<body>
+  <section id="title">
+    <div class="container">
+
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="/"><i class="fab fa-monero"></i>MAGIC PAY</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="login">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="singup">SignUp</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+
+          </ul>
+
+        </div>
+
+      </nav>
+
+
+    </div>
+
+  </section>
+  <section class="container-fluid bg">
+    <section class="row justify-content-center">
+      <section class="col-12 col-sm-6 col-md-3">
+        <form onSubmit="return checkPassword(this)" action="/singup" class="form-container" method="post">
+          <div class="form-group">
+            <label for="exampleInputEmail1"><b>SIGNUP FOR MAGIC PAY</b></label>
+            <hr>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Username</label>
+              <input type="text" name="username1" autofocus class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <small id="emailHelp" class="form-text text-muted">This means your username (nickname) on MagicPay. Be careful you will be able to change it only once in the first 7 days after registration.</small>
+            </div>
+            <div class="form-group">
+              <label for="exampleInputEmail1">Email address</label>
+              <input type="email" name="username" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+              <!-- <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small> -->
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Password</label>
+              <input type="password" name="password" class="form-control" id="SPassword1">
+              <small id="emailHelp" class="form-text text-muted">Password should contain at least five characters</small>
+
+            </div>
+
+            <div class="form-group">
+              <label for="exampleInputPassword1">Confirm Password</label>
+              <input type="password" name="confirm" class="form-control" id="Password1">
+
+            </div>
+
+
+
+            <!-- <div class="form-group form-check">
+            <input type="checkbox" class="form-check-input" id="exampleCheck1">
+            <label class="form-check-label" for="exampleCheck1">Check me out</label>
+          </div> -->
+            <button type="submit" name="submit" class="btn btn-primary btn-block">Register</button>
+        </form>
+
+      </section>
+    </section>
+
+  </section>
+
+  <div class="col-sm-4">
+    <div class="card">
+      <div class="card-body">
+        <a class="btn btn-block btn-social btn-google" href="/auth/google" role="button">
+          <i class="fab fa-google"></i>
+          Sign Up with Google
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <hr class="new">
+  <footer id="footer">
+
+
+
+    <p class="local">MagicPay © Copyright 2020 <br>The only Web platform for all your transactions</p>
+
+  </footer>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="app.js" charset="utf-8"></script>
+
+
+  </script>
+
+
+</body>
+
+</html>
