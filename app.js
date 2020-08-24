@@ -30,7 +30,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb+srv://Rohit-user:Neymar-123@cluster0.6srmu.mongodb.net/bankDB" , {useUnifiedTopology:true, useNewUrlParser: true } );
+mongoose.connect("mongodb://admin-rohit:qwerty123@cluster0-shard-00-00.rqiui.mongodb.net:27017,cluster0-shard-00-01.rqiui.mongodb.net:27017,cluster0-shard-00-02.rqiui.mongodb.net:27017/bankDB?ssl=true&replicaSet=atlas-iaad7j-shard-0&authSource=admin&retryWrites=true&w=majority" , {useUnifiedTopology:true, useNewUrlParser: true } );
 
 mongoose.set('useCreateIndex', true);
 
@@ -99,14 +99,13 @@ passport.use(new GoogleStrategy({
         }
       });
 
-
-
-
       return cb(err, user);
-      console.log(user);
+
     });
   }
 ));
+
+
 
 app.get("/",  function(req, res){
  res.render("front");
@@ -122,6 +121,7 @@ app.get("/auth/google/bank",
     // Successful authentication, redirect home.
     res.redirect("/next");
   });
+
 
 
 
