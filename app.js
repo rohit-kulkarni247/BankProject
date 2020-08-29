@@ -30,7 +30,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-mongoose.connect("mongodb://admin-rohit:qwerty123@cluster0-shard-00-00.rqiui.mongodb.net:27017,cluster0-shard-00-01.rqiui.mongodb.net:27017,cluster0-shard-00-02.rqiui.mongodb.net:27017/bankDB?ssl=true&replicaSet=atlas-iaad7j-shard-0&authSource=admin&retryWrites=true&w=majority" , {useUnifiedTopology:true, useNewUrlParser: true } );
+mongoose.connect("mongodb://user_session:qwerty123@cluster0-shard-00-00.lgrab.mongodb.net:27017,cluster0-shard-00-01.lgrab.mongodb.net:27017,cluster0-shard-00-02.lgrab.mongodb.net:27017/bankDB?ssl=true&replicaSet=atlas-n16tnt-shard-0&authSource=admin&retryWrites=true&w=majority" , {useUnifiedTopology:true, useNewUrlParser: true } );
 
 mongoose.set('useCreateIndex', true);
 
@@ -78,10 +78,10 @@ passport.use(new GoogleStrategy({
     callbackURL: "http://localhost:3000/auth/google/bank",
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
-  function(accessToken, refreshToken, profile, cb, ) {
-    console.log(profile);
-    User.findOrCreate({ googleId: profile.id }, function (err, user) {
-      User.updateOne({googleId: profile.id},{username1:profile.name.givenName},function(err,result){
+  function(accessToken, refreshToken, email, cb, ) {
+    console.log(email);
+    User.findOrCreate({ googleId: email.id }, function (err, user) {
+      User.updateOne({googleId: email.id},{username1:email.name.givenName},function(err,result){
         if(err){
           console.log(err);
         }
@@ -90,7 +90,7 @@ passport.use(new GoogleStrategy({
         }
       });
 
-      User.updateOne({googleId: profile.id},{username:profile.displayName},function(err,result){
+      User.updateOne({googleId: email.id},{username:email.emails[0].value},function(err,result){
         if(err){
           console.log(err);
         }
@@ -112,7 +112,7 @@ app.get("/",  function(req, res){
 });
 
 app.get("/auth/google",
-  passport.authenticate("google", { scope: ["profile"] })
+  passport.authenticate("google", { scope: ["email","profile"] })
 );
 
 app.get("/auth/google/bank",
@@ -236,9 +236,6 @@ app.post('/withdraw',function(req,res){
     }
 });
 
-app.get("/transaction",  function(req, res){
- res.render("transaction");
-});
 
 let port = process.env.PORT;
 if (port == null || port == "") {
