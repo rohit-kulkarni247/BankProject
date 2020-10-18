@@ -4,10 +4,8 @@ require('dotenv').config();
 const express=require('express');
 const bodyparser=require('body-parser');
 const mongoose=require('mongoose');
-const https=require('https');
 const session=require('express-session');
 const passport=require('passport');
-const ejs = require("ejs");
 const passportLocalMongoose=require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require('mongoose-findorcreate');
@@ -34,10 +32,7 @@ mongoose.connect("mongodb://user_session:qwerty123@cluster0-shard-00-00.lgrab.mo
 
 mongoose.set('useCreateIndex', true);
 
-var sess;
-var temp;
-var num1;
-var mail;
+
 var updated;
 
 const bankschema=new mongoose.Schema({
@@ -235,6 +230,8 @@ app.post('/withdraw',function(req,res){
       res.render("withdraw",{name:req.user.username1,bal:req.user.balance,failed1:"Withdrawal Amount cannot be greater than Available balance"});
     }
 });
+
+
 
 
 
