@@ -74,24 +74,20 @@ passport.use(new GoogleStrategy({
     userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
   },
   function(accessToken, refreshToken, email, cb, ) {
-    console.log(email);
+    
     User.findOrCreate({ googleId: email.id }, function (err, user) {
       User.updateOne({googleId: email.id},{username1:email.name.givenName},function(err,result){
         if(err){
           console.log(err);
         }
-        else{
-          console.log("successfully updated the username1");
-        }
+        
       });
 
       User.updateOne({googleId: email.id},{username:email.emails[0].value},function(err,result){
         if(err){
           console.log(err);
         }
-        else{
-          console.log("successfully updated the emailid");
-        }
+        
       });
 
       return cb(err, user);
@@ -144,9 +140,9 @@ app.post("/singup", function(req, res){
         console.log(err);
         res.redirect("/singup");
       }else{
-        console.log("hello");
+        
         passport.authenticate("local")(req, res, function(){
-            console.log("success");
+            
             res.redirect("/next");
         });
       }
@@ -164,13 +160,13 @@ app.post('/login', function(req, res){
 
   req.login(user, function(err){
     if(err){
-      console.log("hii");
+      
       console.log(err);
 
     }
     else{
       passport.authenticate("local")(req, res, function(){
-          console.log("success");
+          
           res.redirect("/next");
       });
     }
@@ -193,15 +189,15 @@ app.get("/addmoney",  function(req, res){
 
 app.post('/addmoney',function(req,res){
   var t1=parseInt(req.body.value1);
-    updated=req.user.balance+t1;
-    User.updateOne({username:req.user.username},{balance:updated},function(err,result){
-      if(err){
-        console.log(err);
-      }
-      else{
-        res.redirect("/addmoney");
-      }
-    })
+  updated=req.user.balance+t1;
+  User.updateOne({username:req.user.username},{balance:updated},function(err,result){
+    if(err){
+      console.log(err);
+    }
+    else{
+      res.redirect("/addmoney");
+    }
+  })
 });
 
 app.get("/withdraw",  function(req, res){
