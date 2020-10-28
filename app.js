@@ -71,7 +71,8 @@ passport.use(new GoogleStrategy({
     clientID: process.env.CLIENT_ID,
     clientSecret: process.env.CLIENT_SECRET,
     callbackURL: "https://vast-ocean-94291.herokuapp.com/auth/google/bank",
-    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo"
+    userProfileURL: "https://www.googleapis.com/oauth2/v3/userinfo",
+    proxy:true
   },
   function(accessToken, refreshToken, email, cb, ) {
     
