@@ -10,6 +10,7 @@ const passportLocalMongoose=require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require('mongoose-findorcreate');
 
+
 const app=express();
 
 app.use(express.static('public'));
@@ -99,6 +100,8 @@ passport.use(new GoogleStrategy({
 
 
 
+
+
 app.get("/",  function(req, res){
  res.render("front");
 });
@@ -114,7 +117,7 @@ app.get("/auth/google/bank",
     res.redirect("/next");
   });
 
-
+  
 
 
 app.get("/singup",  function(req, res){
