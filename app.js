@@ -9,7 +9,7 @@ const passport=require('passport');
 const passportLocalMongoose=require('passport-local-mongoose');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const findOrCreate=require('mongoose-findorcreate');
-
+const GithubStrategy = require('passport-github2').Strategy;
 
 const app=express();
 
@@ -98,6 +98,18 @@ passport.use(new GoogleStrategy({
   }
 ));
 
+passport.use(new GithubStrategy({
+  clientID: process.env.CLIENT_ID_GITHUB,
+  clientSecret: process.env.CLIENT_SECRET_GITHUB,
+  callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+},
+function(accessToken, refreshToken, profile, done) {
+  User.findOrCreate({ githubId: profile.id }, function (err, user) {
+    return done(err, user);
+  });
+}
+));
+
 
 
 
@@ -117,7 +129,15 @@ app.get("/auth/google/bank",
     res.redirect("/next");
   });
 
-  
+  app.get('/auth/github',
+  passport.authenticate('github', { scope: [ 'user:email' ] }));
+
+app.get('/auth/github/bank', 
+  passport.authenticate('github', { failureRedirect: '/login' }),
+  function(req, res) {
+    // Successful authentication, redirect home.
+    res.redirect('/next');
+  });
 
 
 app.get("/singup",  function(req, res){
