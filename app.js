@@ -42,6 +42,7 @@ const bankschema=new mongoose.Schema({
   password1:String,
   balance:{type:Number,default:0},
   googleId:String,
+  githubId:String,
   versionKey: false
 });
 
@@ -78,6 +79,7 @@ passport.use(new GoogleStrategy({
   function(accessToken, refreshToken, email, cb, ) {
     
     User.findOrCreate({ googleId: email.id }, function (err, user) {
+      //console.log(email);
       User.updateOne({googleId: email.id},{username1:email.name.givenName},function(err,result){
         if(err){
           console.log(err);
@@ -101,11 +103,26 @@ passport.use(new GoogleStrategy({
 passport.use(new GithubStrategy({
   clientID: process.env.CLIENT_ID_GITHUB,
   clientSecret: process.env.CLIENT_SECRET_GITHUB,
-  callbackURL: "http://127.0.0.1:3000/auth/github/callback"
+  callbackURL: "/auth/github/bank"
 },
 function(accessToken, refreshToken, profile, done) {
-  User.findOrCreate({ githubId: profile.id }, function (err, user) {
-    return done(err, user);
+  //console.log(profile);
+   User.findOrCreate({ githubId: profile.id }, function (err, user) {
+    User.updateOne({githubId: profile.id},{username1:profile.username},function(err,result){
+      if(err){
+        console.log(err);
+      }
+      
+    });
+
+    User.updateOne({githubId: profile.id},{username:profile.emails[0].value},function(err,result){
+      if(err){
+        console.log(err);
+      }
+      
+    });
+
+     return done(err, user);
   });
 }
 ));
