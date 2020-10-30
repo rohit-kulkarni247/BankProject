@@ -4,7 +4,7 @@
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "CLIENT_ID=1026627563714-2v3q5uo0mgktl758u2bvboa1ni75ppf6.apps.googleusercontent.com CLIENT_SECRET=v628e7s5-z3EEZYoCi3cCxwV node app.js"
+    "start": "node app.js"
   },
   "author": "",
   "license": "ISC",
